@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--calendar libraries-->
+  <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/index.global.min.css" rel="stylesheet" />
+
+  <meta charset="UTF-8">
+  <title>Device Authorization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    a {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .code {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 10px;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    #status {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #status.success {
+      color: green;
+    }
+
+    #status.error {
+      color: red;
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 25px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    }
+
+    #calendar {
+      margin-top: 30px;
+    }
+
+    select {
+      font-size: 16px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+      padding: 6px 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>🔐 SH5 Device Authorization</h1>
+
+  <div class="box">
+    <div id="message">⏳ Waiting for device code...</div>
+    <div id="qr"></div>
+    <div id="status"></div>
+  </div>
+
+  <!-- Moved outside of auth box -->
+  <div id="monthControls" style="display: none;">
+    <label for="monthSelect">🗓 Choose a month:</label>
+    <select id="monthSelect" onchange="onMonthChange()" disabled>
+      <option value="2025-01">January 2025</option>
+      <option value="2025-02">February 2025</option>
+      <option value="2025-03">March 2025</option>
+      <option value="2025-04">April 2025</option>
+      <option value="2025-05" selected>May 2025</option>
+      <option value="2025-06">June 2025</option>
+      <option value="2025-07">July 2025</option>
+      <option value="2025-08">August 2025</option>
+      <option value="2025-09">September 2025</option>
+      <option value="2025-10">October 2025</option>
+      <option value="2025-11">November 2025</option>
+      <option value="2025-12">December 2025</option>
+    </select>
+  </div>    
+
+  <div id="calendar" style="max-width: 1000px; margin: 40px auto;"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.8/index.global.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
